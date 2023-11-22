@@ -1,0 +1,11 @@
+<div class="container">
+  <%= render 'layouts/header'%>
+  <%= render 'layouts/flash'%>
+  <div class="col-md-8">
+    <%= form_tag(favorites_movies_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search by title' %>
+      <%= submit_tag 'Search', class: 'btn btn-dark btn-sm' %>
+    <% end %>
+  </div>
+  <%= render 'movies'%>
+</div>

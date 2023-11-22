@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="card mb-3" style="max-width: 1000px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<%= @movie['Poster']%>" class="img-fluid rounded-start" alt="..." style = "height: -webkit-fill-available !important;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <%= link_to 'Back', url_for(:back), class: 'btn btn-dark'%>
+        <br>
+        <h5 class="card-title"><%= @movie['Title']%></h5>
+        <p class="card-text"><b> Director : </b><%= @movie['Director']%></p>
+        <p class="card-text"><b> Writer : </b><%= @movie['Writer']%></p>
+        <p class="card-text"><b> Actors : </b><%= @movie['Actors']%></p>
+        <p class="card-text"><b> Genre : </b><%= @movie['Genre']%></p>
+        <p class="card-text"><b> Released : </b><%= @movie['Released']%></p>
+        <p class="card-text"><b> Plot : </b><%= @movie['Plot']%></p>
+        <p class="card-text"><b> Language : </b><%= @movie['Language']%></p>
+        <p class="card-text"><b> Country : </b><%= @movie['Country']%></p>
+        <p class="card-text"><b> Awards : </b><%= @movie['Awards']%></p>
+        <p class="card-text"><b> Meta Score : </b><%= @movie['Metascore']%></p>
+        <p class="card-text"><b> Imdb Ratings : </b><%= @movie['imdbRating']%></p>
+        <p class="card-text"><b> Imdb Votes : </b><%= @movie['imdbVotes']%></p>
+        <p class="card-text"><b> Meta Score : </b><%= @movie['Metascore']%></p>
+        <p class="card-text"><b> DVD : </b><%= @movie['DVD']%></p>
+        <p class="card-text"><b> Run Time : </b><%= @movie['Runtime']%></p>
+        <hr>
+        <h5 class="card-title">Ratings</h5>
+        <% @movie['Ratings'].each do |d|%>
+        <p class="card-text"><b> Awards : </b><%= @movie['Awards']%></p>
+          <p class="card-text"> <b>Source : </b><%= d['Source'] %> </p>
+          <p class="card-text"> <b> Value : </b><%= d['Value'] %> </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

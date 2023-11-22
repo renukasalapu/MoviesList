@@ -1,0 +1,28 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <th>Poster</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% if @movies.present? %>
+    <% @movies.each do |movie| %>
+    <tr>
+      <td><img src= "<%= movie['Poster']%>" width=100 height=100> </td>
+      <td><%= movie['Title'] %></td>
+      <td><%= movie['Year'] %></td>
+      <td><%= link_to 'Show', movie_path(movie['imdbID']), class: "btn btn-dark"%>
+        <% unless Favorite.find_by(movie_id: movie['imdbID']).present? %>
+          <%= link_to 'Add to Favorites',add_to_favorite_movies_path(id: movie['imdbID']), data: { turbo_method: "post" }, class: 'btn btn-dark' %>
+        <% else %>
+          <%= link_to 'Remove from Favorites',remove_from_favorite_movies_path(id: movie["imdbID"]),data: { turbo_method: "post" }, class: 'btn btn-dark' %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+
+    <% else %>
+    <% end %>
+  </tbody>
+</table>
